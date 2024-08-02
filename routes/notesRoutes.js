@@ -7,7 +7,6 @@ const router = express.Router();
 router.post("/add",checkAuth,async (req,res)=>{
         const {title,description} = req.body;
         let myuser = req.user;
-        console.log(myuser)
         try {
             if(title!="" && description!=""){
                 const newnote = await notes.create({
@@ -35,7 +34,6 @@ router.get("/show",checkAuth,async (req,res)=>{
     try {
         let allNotes = await notes.find({userId : req.user.id});
         if(allNotes.length >= 1){
-            console.log(allNotes)
             req.flash("success_msg","succesfully Fetched")
             res.render("showNotes",{notes:allNotes})
         }else{
@@ -76,9 +74,7 @@ router.get("/delete/:id",checkAuth,async (req,res)=>{
     try {
         let noteid = req.params.id
         let deletednote = await notes.findByIdAndDelete({_id:noteid});
-        console.log(deletednote)
         if(deletednote){
-            console.log(deletednote)
             let allNotes = await notes.find({userId:String(req.user.id)})
             req.flash("success_msg","succesfully deleted")
             res.render("showNotes",{notes:allNotes})
