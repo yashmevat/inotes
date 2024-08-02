@@ -38,3 +38,7 @@ nav{
 h1{
     text-align: center;
 }
+.navbar {
+    /* Avoid setting fixed heights or widths that can cause responsiveness issues */
+    height: auto; /* Ensure height is not fixed */
+  }
