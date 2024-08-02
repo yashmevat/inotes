@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-color{
+    background-color: black;
+    color: aliceblue;
+}
+.nav-link{
+    color: aliceblue;
+    font-size: 1.3rem;
+}
+.navbar-brand{
+    color: aliceblue;
+    font-size: 2rem;
+}
+.navbar-brand:hover,.nav-link:hover{
+    color: rgb(7, 166, 245);
+    transition: all 0.4s linear;
+}
+body{
+    background-color: black;
+}
+h1{
+    color: white;
+}
+label{
+    color: white;
+}
+i{
+    cursor: pointer;
+}
+nav{
+    height: 5rem;
+}
+h1{
+    text-align: center;
+}
