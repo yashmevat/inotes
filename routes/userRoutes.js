@@ -8,6 +8,11 @@ const router = express.Router();
 router.post("/signup",async(req,res)=>{
     const {name,email,password} = req.body;
     try {
+        if(!name || !email || !password){
+            
+            req.flash("error_msg","All Fields Are Mandatory")
+            return res.redirect("/")
+        }
         let myuser = await user.findOne({email});
         if(myuser)
         {
