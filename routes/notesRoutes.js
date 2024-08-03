@@ -34,7 +34,7 @@ router.get("/show",checkAuth,async (req,res)=>{
     try {
         let allNotes = await notes.find({userId : req.user.id});
         if(allNotes.length >= 1){
-            req.flash("success_msg","succesfully Fetched")
+            // req.flash("success_msg","succesfully Fetched")
             res.render("showNotes",{notes:allNotes})
         }else{
             req.flash("error_msg","Sorry No Notes To Show")
@@ -59,9 +59,10 @@ router.post("/edit/:id",checkAuth,async(req,res)=>{
         let noteId = req.params.id;
         let editNote = await notes.findByIdAndUpdate({_id:noteId},{$set:{title:title,description:description}})
         if(editNote){
-            let allNotes = await notes.find({userId:String(req.user.id)})
             req.flash("success_msg","edited Successfully")
-            res.render("showNotes",{notes:allNotes})
+            // let allNotes = await notes.find({userId:String(req.user.id)})
+            res.redirect("/note/show")
+            // res.render("showNotes",{notes:allNotes})
         }else{
             req.flash("error_msg","Unable to edit The Note")
            return res.redirect("/note/show")
@@ -75,12 +76,13 @@ router.get("/delete/:id",checkAuth,async (req,res)=>{
         let noteid = req.params.id
         let deletednote = await notes.findByIdAndDelete({_id:noteid});
         if(deletednote){
-            let allNotes = await notes.find({userId:String(req.user.id)})
+            // let allNotes = await notes.find({userId:String(req.user.id)})
             req.flash("success_msg","succesfully deleted")
-            res.render("showNotes",{notes:allNotes})
+            res.redirect("/note/show")
+            // res.render("showNotes",{notes:allNotes})
         }else{
             req.flash("error_msg","Unable to delete The Note")
-           return res.redirect("/note/show")
+            res.redirect("/note/show")
         }
     } catch (error) {
         console.log(error)

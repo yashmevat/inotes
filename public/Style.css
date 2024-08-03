@@ -5,8 +5,12 @@
 }
 
 .bg-color{
-    background-color: black;
+    background-color: rgba(49, 45, 45, 0.918);
     color: aliceblue;
+}
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    background-color: white;
 }
 .nav-link{
     color: aliceblue;
@@ -35,9 +39,9 @@ i{
 nav{
     height: 5rem;
 }
-h1{
+/* h1{
     text-align: center;
-}
+} */
 .navbar {
     /* Avoid setting fixed heights or widths that can cause responsiveness issues */
     height: auto; /* Ensure height is not fixed */

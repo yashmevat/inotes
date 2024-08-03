@@ -12,7 +12,7 @@ router.post("/signup",async(req,res)=>{
         if(myuser)
         {
             req.flash("error_msg","User Already Exist")
-            return res.redirect("/")
+            res.redirect("/")
         }
         else{
             let salt = await bcrypt.genSalt(10);
