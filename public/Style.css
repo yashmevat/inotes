@@ -8,10 +8,10 @@
     background-color: rgba(49, 45, 45, 0.918);
     color: aliceblue;
 }
-.navbar-toggler:not(:disabled):not(.disabled) {
+/* .navbar-toggler:not(:disabled):not(.disabled) {
     cursor: pointer;
     background-color: white;
-}
+} */
 .nav-link{
     color: aliceblue;
     font-size: 1.3rem;

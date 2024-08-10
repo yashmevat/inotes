@@ -48,7 +48,7 @@ router.post("/login",async(req,res)=>{
                     id:myuser.id,
                     email:myuser.email
                 }
-                const token = jwt.sign(payload,"my name is yash",{expiresIn:"3h"})
+                const token = jwt.sign(payload,"my name is yash")
                 res.cookie('token', token , {httpOnly: true });
                 req.flash("success_msg","Logged In Successfully")
                 return res.redirect("/user/dashboard")
