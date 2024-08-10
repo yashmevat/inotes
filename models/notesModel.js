@@ -7,7 +7,6 @@ const notesSchema = new mongoose.Schema({
         required:true
      },
      description:{
-        unique:true,
         type:String,
         required:true
      },
